@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Model
 {
@@ -14,6 +15,15 @@ namespace Model
         [MinLength(10)]
         public string Desription { get; set; }
         public DateTime? ExpenseDate { get; set; }
+        [ForeignKey("Requestor")]
+        public int RequestorId { get; set; }
+        [InverseProperty("RequestorExpenseHeaders")]
+        public User Requestor { get; set; }
+        [ForeignKey("Approver")]
+        public int ApproverId { get; set; }
+        [InverseProperty("ApprovalExpenseHeaders")]
+        public User Approver { get; set; }
+        public List<ExpenseLine> ExpenseLines { get; set; }
 
     }
 }

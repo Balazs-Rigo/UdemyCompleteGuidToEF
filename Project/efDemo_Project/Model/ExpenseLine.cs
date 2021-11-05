@@ -17,5 +17,7 @@ namespace Model
         public decimal UnitCost { get; set; }
         [NotMapped]
         public string Secret { get; set; }
+        //public int ExpenseHeaderId { get; set; }
+        //public ExpenseHeader ExpenseHeader { get; set; }
     }
 }
